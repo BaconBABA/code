@@ -337,6 +337,18 @@ close.TextScaled = true
 close.TextSize = 14
 close.TextWrapped = true
 
+local function updateStats()
+	while true do
+		HungerVal.Text = "Hunger: " .. game:GetService("Players").LocalPlayer.Hunger.HungerVal.Value
+		ThirstVal.Text = "Thirst: " .. game:GetService("Players").LocalPlayer.Hunger.ThirstVal.Value
+		SleepVal.Text = "Sleep: " .. game:GetService("Players").LocalPlayer.Life.SleepVal.Value
+		
+		task.wait()
+	end
+end
+
+spawn(updateStats)
+
 local UIS = game:GetService('UserInputService')
 local frame = Frame
 local dragToggle = nil
@@ -456,7 +468,7 @@ farm_button.MouseButton1Click:Connect(function()
 end)
 
 GetBag.MouseButton1Click:Connect(function()
-	print(1)
+	fireclickdetector(workspace.Shop.place.blinkep:GetChildren()[3].click.ClickDetector)
 end)
 
 free_item_button.MouseButton1Click:Connect(function()
@@ -468,11 +480,18 @@ free_item_button.MouseButton1Click:Connect(function()
 end)
 
 free_water.MouseButton1Click:Connect(function()
-	print(1)
+	fireclickdetector(workspace.Shop.freeitem:GetChildren()[5].Model.click.ClickDetector)
 end)
 
 free_mangoes.MouseButton1Click:Connect(function()
-	print(1)
+	for _, v in ipairs(game:GetDescendants()) do
+    if v:IsA("Model") and v.Name == "Mango" then
+        local click = v:FindFirstChildOfClass("ClickDetector")
+        if click then
+            fireclickdetector(click)
+        end
+    end
+end
 end)
 
 local TweenService = game:GetService("TweenService")
