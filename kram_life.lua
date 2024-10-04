@@ -22,6 +22,9 @@ local freeitem = Instance.new("TextLabel")
 local free_water = Instance.new("TextButton")
 local free_mangoes = Instance.new("TextButton")
 local close = Instance.new("TextButton")
+local token = 123
+local player = game.Players.LocalPlayer
+player:SetAttribute("ControlToken", token)
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
