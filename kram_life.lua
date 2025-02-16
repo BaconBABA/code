@@ -1,4 +1,4 @@
-local ScreenGui = Instance.new("ScreenGui")
+--[[local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UIGradient = Instance.new("UIGradient")
 local UICorner = Instance.new("UICorner")
@@ -535,4 +535,4 @@ close.MouseButton1Click:Connect(function()
 		frame.Visible = false
 	end
 	ScreenGui:Destroy()
-end)
+end)]]
